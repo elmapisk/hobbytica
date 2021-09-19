@@ -20,6 +20,10 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: postgres
+
+  # The password associated with the postgres role (username).
+  password:
 
 development:
   <<: *default
@@ -82,4 +86,4 @@ production:
   <<: *default
   database: collabfield_production
   username: collabfield
-  password: <%= ENV['COLLABFIELD_DATABASE_PASSWORD'] %>
+  password: <%= ENV['collabfield_DATABASE_PASSWORD'] %>
