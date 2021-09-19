@@ -26,14 +26,7 @@ require 'rspec/rails'
 
 # Checks for pending migrations and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove these lines.
-require 'capybara/poltergeist'
-require 'factory_girl_rails'
-require 'capybara/rspec'
 
-config.include Devise::Test::IntegrationHelpers, type: :feature
-config.include FactoryGirl::Syntax::Methods
-Capybara.javascript_driver = :poltergeist
-Capybara.server = :puma
 begin
   ActiveRecord::Migration.maintain_test_schema!
 rescue ActiveRecord::PendingMigrationError => e
@@ -68,6 +61,13 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
+  require 'capybara/poltergeist'
+  require 'factory_girl_rails'
+  require 'capybara/rspec'
+  config.include Devise::Test::IntegrationHelpers, type: :feature
+  config.include FactoryGirl::Syntax::Methods
+  Capybara.javascript_driver = :poltergeist
+  Capybara.server = :puma
   
   # RSpec Rails can automatically mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and
