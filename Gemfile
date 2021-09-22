@@ -41,6 +41,7 @@ gem 'rails-controller-testing'
 gem 'headless'
 gem 'poltergeist'
 gem 'database_cleaner'
+gem 'faker', '~> 2.12.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
